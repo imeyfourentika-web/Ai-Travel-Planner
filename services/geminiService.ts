@@ -46,8 +46,12 @@ const itinerarySchema: Schema = {
                   type: Type.STRING,
                   description: "Category like Food, History, Nature, Shopping.",
                 },
+                imagePrompt: {
+                   type: Type.STRING,
+                   description: "A short, descriptive English search term to find a photo of this place (e.g., 'Eiffel Tower Paris sunny' or 'Sushi platter').",
+                }
               },
-              required: ["name", "description", "openingHours", "estimatedCost", "price", "category"],
+              required: ["name", "description", "openingHours", "estimatedCost", "price", "category", "imagePrompt"],
             },
           },
         },
@@ -72,6 +76,7 @@ export const generateItinerary = async (input: TripInput): Promise<ItineraryResp
     1. Sesuaikan rekomendasi aktivitas, transportasi lokal, dan tempat makan agar TOTAL estimasi biaya mendekati atau di bawah budget user.
     2. SANGAT PENTING: Gunakan mata uang '${input.currency}' untuk semua estimasi harga (price dan estimatedCost). Jangan gunakan mata uang lokal destinasi jika berbeda dengan '${input.currency}'. (Contoh: Jika user pilih IDR ke Jepang, output harga dalam IDR).
     3. Jika aktivitas gratis, isi price dengan 0.
+    4. Untuk 'imagePrompt', berikan kata kunci bahasa Inggris yang spesifik untuk visualisasi tempat tersebut.
     
     Berikan output dalam format JSON yang valid sesuai skema yang diminta.
     Pastikan:

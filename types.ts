@@ -13,6 +13,7 @@ export interface Activity {
   estimatedCost: string; // e.g., "¥2000"
   price: number; // Numeric value for calculation (0 if free)
   category: string; // e.g., "Food", "Sightseeing"
+  imagePrompt: string; // Keyword for generating/fetching image
 }
 
 export interface DayPlan {
