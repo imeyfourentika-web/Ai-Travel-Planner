@@ -1,0 +1,5 @@
+{
+  "name": "AI Travel Planner",
+  "description": "A smart travel itinerary generator using Gemini 2.5 Flash to create detailed day-by-day travel plans with cost estimates and activity details.",
+  "requestFramePermissions": []
+}
